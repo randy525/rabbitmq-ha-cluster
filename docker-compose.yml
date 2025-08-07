@@ -1,0 +1,44 @@
+services:
+  rabbit1:
+    image: rabbitmq:4.1-management
+    hostname: rabbit1
+    container_name: rabbit1
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "secret"
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    networks:
+      - rabbitmq_net
+
+  rabbit2:
+    image: rabbitmq:4.1-management
+    hostname: rabbit2
+    container_name: rabbit2
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "secret"
+    depends_on:
+      - rabbit1
+    ports:
+      - "15673:15672"
+      - "5673:5672"
+    networks:
+      - rabbitmq_net
+
+  rabbit3:
+    image: rabbitmq:4.1-management
+    hostname: rabbit3
+    container_name: rabbit3
+    environment:
+      RABBITMQ_ERLANG_COOKIE: "secret"
+    depends_on:
+      - rabbit1
+    ports:
+      - "15674:15672"
+      - "5674:5672"
+    networks:
+      - rabbitmq_net
+
+networks:
+  rabbitmq_net:
+    driver: bridge
