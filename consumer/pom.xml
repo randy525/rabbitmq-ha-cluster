@@ -6,7 +6,6 @@
         <groupId>com.example</groupId>
         <artifactId>rabbitmq-ha-cluster</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <artifactId>consumer</artifactId>
     <version>0.0.1-SNAPSHOT</version>

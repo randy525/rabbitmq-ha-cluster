@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: Producer
+
+rabbitmq:
+  connection:
+    username: guest
+    password: guest
+    addresses: "localhost:5672,localhost:5673,localhost:5674"
+    channel-cache-size: 10
+  producer:
+    exchange: ex.ha.example
+    routing-key: test
+    messages-per-second: 10

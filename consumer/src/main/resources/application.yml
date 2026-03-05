@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: consumer
+
+rabbitmq:
+  connection:
+    username: guest
+    password: guest
+    addresses: localhost:5672,localhost:5673,localhost:5674
+    channel-cache-size: 10
+    concurrent-consumers: 10
+    max-concurrent-consumers: 20
+  queue:
+    name: q.ha.example
+    durable: true
+    exclusive: false
+    auto-delete: false
+    arguments:
+      x-queue-type: quorum
+  exchange:
+    name: ex.ha.example
+    durable: true
+    routing-key: test
+
